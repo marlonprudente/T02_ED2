@@ -16,7 +16,10 @@ int retornamenor( int a, int b)
     return b;
     }
     else
+    {
     return a;
+    }
+    
 }
 int **inicializa_matriz_de_adjacencias (int r, int c, int w) {
    int i, j;
@@ -35,18 +38,18 @@ void floyd(graph* g) {
    int **temp = inicializa_matriz_de_adjacencias(g->node_count, g->node_count, INF);
 
 
-    for (i = 0; i < g->node_count; i++) {
+    /*for (i = 0; i < g->node_count; i++) {
         for (j = 0; j < g->node_count; j++) {
                 printf("%d | ", g->matrixadj[i][j]);
             }
             printf("\n");
 
-    }
+    }*/
+   
     for (i = 0; i < g->node_count; i++) {
         for (j = 0; j < g->node_count; j++) {
-            D[i][j] = g->matrixadj[i][j];
+            D[i][j] = g->matrixadj[i][j];            
         }
-
     } 
 
    /*****************************/
@@ -60,7 +63,9 @@ void floyd(graph* g) {
             for( j = 0; j < g->node_count; j++)
             {
                 temp[i][j] = retornamenor(D[i][j], D[i][k] + D[k][j]);
+                
             }
+ 
         }
         /***/
         for(i = 0; i< g->node_count; i++)
@@ -68,11 +73,13 @@ void floyd(graph* g) {
             for( j = 0; j < g->node_count; j++)
             {
                 D[i][j] = temp[i][j];
+
             }
         }
 
 
     }
+   
        for(i = 0; i< g->node_count; i++)
         {
             for( j = 0; j < g->node_count; j++)
