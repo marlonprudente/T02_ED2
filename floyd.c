@@ -36,15 +36,6 @@ void floyd(graph* g) {
       int k, i, j;
    int **D = inicializa_matriz_de_adjacencias(g->node_count, g->node_count, INF);
    int **temp = inicializa_matriz_de_adjacencias(g->node_count, g->node_count, INF);
-
-
-    /*for (i = 0; i < g->node_count; i++) {
-        for (j = 0; j < g->node_count; j++) {
-                printf("%d | ", g->matrixadj[i][j]);
-            }
-            printf("\n");
-
-    }*/
    
     for (i = 0; i < g->node_count; i++) {
         for (j = 0; j < g->node_count; j++) {

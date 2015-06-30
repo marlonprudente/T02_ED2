@@ -99,6 +99,6 @@ void graph_destroy(graph*);
 	Imprimi o grafo no console, em formato DOT.
 
 */
-void graph_dump(graph*, int);
+void graph_dump(graph*, int, int);
 
 #endif // GRAPH_H

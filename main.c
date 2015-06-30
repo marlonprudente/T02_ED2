@@ -48,7 +48,7 @@ int main() {
         
     dijkstra(g, citya); /* Inicio pela Cidade A */
     floyd(g);
-    graph_dump(g, cityb); /* Destino -> Cidade B */
+    graph_dump(g, cityb, citya); /* Destino -> Cidade B */
     graph_destroy(g);
 
     return 0;

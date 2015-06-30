@@ -95,7 +95,7 @@ void graph_destroy(graph* g) {
     free(g);
 }
 
-void graph_dump(graph* g, int highlight_destination) {
+void graph_dump(graph* g, int highlight_destination, int citya) {
     unsigned int j;
     int i, count;
     int index;
@@ -119,12 +119,13 @@ void graph_dump(graph* g, int highlight_destination) {
 
     printf("Grafo g {\noverlap = false;\nnode [color=black,fillcolor=white,shape=ellipse,style=\"filled,bold\",width=.3, height=.3];\nedge [fontname=Helvetica,fontsize=9];\n");
 
-    int op, indi, indj;
+    int op;
     printf("Digite a Opção desejada: \n");
     printf("0 - Encerrar Programa.\n");
     printf("1 - Melhor Trajeto (Menor Caminho) ao destino.\n");
     printf("2 - Lista de Caminhos entre as cidades. \n");
     printf("3 - Matriz de Floyd. \n");
+    printf("4 - Caminho mínimo por Floyd. \n");
 
     scanf("%d", &op);
     while (op != 0) {
@@ -148,11 +149,16 @@ void graph_dump(graph* g, int highlight_destination) {
                 break;
             case 3:
                 for (i = 0; i < g->node_count; i++) {
+                   // printf("%s          | ", g->nodes[i].value);
                     for (j = 0; j < g->node_count; j++) {
-                        printf("%d | ", g->matrixadj[i][j]);
+                       // printf("%s          | ", g->nodes[j].value);
+                        printf("%d          | ", g->matrixadj[i][j]);
                     }
                     printf("\n");
                 }
+                break;
+            case 4:
+                printf("Irá gastár %d Km de [%s] a [%s]", g->matrixadj[citya][highlight_destination],g->nodes[citya].value ,g->nodes[highlight_destination].value);
                 break;
             default:
                 printf("Opção Inválida!");
@@ -164,11 +170,10 @@ void graph_dump(graph* g, int highlight_destination) {
         printf("1 - Melhor Trajeto (Menor Caminho) ao destino.\n");
         printf("2 - Lista de Caminhos entre as cidades. \n");
         printf("3 - Matriz de Floyd. \n");
+        printf("4 - Caminho mínimo por Floyd. \n");
         scanf("%d", &op);
     }
-
-    printf("}\n");
-
+    //printf("}\n");
     if (highlight_destination != -1) {
         free(indices);
     }
