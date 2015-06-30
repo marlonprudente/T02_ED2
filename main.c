@@ -6,6 +6,7 @@
 #include "graph.h"
 #include "dijkstra.h"
 #include "heap.h"
+#include "floyd.h"
 /** Foi Criado nós referente a todas as capitais brasileiras, porem, só foi utilizado 4 Capitais, Curitiba, R. de Janeiro, São Paulo e B. Horizonte**/
 
 int main() {
@@ -40,12 +41,13 @@ int main() {
 		}
 		
 	}
-        printf("Digite sua localização (7 = Curitiba):\n");
+        printf("Digite sua localização (1 = Curitiba):\n");
         scanf("%d", &citya);
-        printf("Digite seu destino (2 = B. Horizonte):\n");
+        printf("Digite seu destino (0 = B. Horizonte):\n");
         scanf("%d", &cityb);
         
     dijkstra(g, citya); /* Inicio pela Cidade A */
+    floyd(g);
     graph_dump(g, cityb); /* Destino -> Cidade B */
     graph_destroy(g);
 

@@ -4,23 +4,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define INFTY = 10*pow(10,10);
+
 graph* graph_make() {
     graph* g = malloc(sizeof (graph));
     g->node_space = 0;
     g->node_count = 0;
     g->nodes = NULL;
-    g->matrixadj;
+    g->matrixadj = NULL;
     return g;
-}
-int **inicializa_matriz_de_adjacencias (int r, int c, int w) {
-   int i, j;
-   int **mat = malloc( r * sizeof (int *));
-   for (i = 0; i < r; i++)
-      mat[i] = malloc( c * sizeof (int));
-   for (i = 0; i < r; i++)
-      for (j = 0; j < c; j++)
-         mat[i][j] = w;
-   return mat;
 }
 
 bool graph_is_full(graph* g) {
@@ -39,7 +30,7 @@ void graph_enlarge(graph* g) {
 void graph_add_node(graph* g, char* c) {
     unsigned int count;
     node *n;
-
+    int i, j;
     if (graph_is_full(g)) {
         graph_enlarge(g);
     }
@@ -54,7 +45,23 @@ void graph_add_node(graph* g, char* c) {
     n->heap_index = -1;
     n->previous = -1;
     g->node_count++;
-    //g->matrixadj = inicializa_matriz_de_adjacencias (g->node_count, g->node_count,INFTY);
+    
+    g->matrixadj = malloc( count * sizeof (int *));
+    
+    for (i = 0; i < count; i++) {
+        g->matrixadj[i] = malloc(count * sizeof (int));
+    }
+
+    for (i = 0; i < count; i++) {
+        for (j = 0; j < count; j++) {
+            g->matrixadj[i][j] = 0;
+        }
+    }
+        for (i = 0; i < count; i++) {
+        g->matrixadj[i][i] = 0;
+
+    }     
+
 }
 
 void graph_add_edge(graph* g, unsigned int i, unsigned int j, double weight) {
@@ -72,9 +79,10 @@ void graph_add_edge(graph* g, unsigned int i, unsigned int j, double weight) {
     }
     e = &n->edges[n->edge_count];
     e->source = i;
-    e->destination = j;
+    e->destination = j;    
     e->weight = weight;
     g->nodes[i].edge_count++;
+    g->matrixadj[i][j] = weight;
 }
 
 void graph_destroy(graph* g) {
@@ -111,7 +119,7 @@ void graph_dump(graph* g, int highlight_destination) {
 
     printf("Grafo g {\noverlap = false;\nnode [color=black,fillcolor=white,shape=ellipse,style=\"filled,bold\",width=.3, height=.3];\nedge [fontname=Helvetica,fontsize=9];\n");
 
-    int op;
+    int op, indi, indj;
     printf("Digite a Opção desejada: \n");
     printf("0 - Encerrar Programa.\n");
     printf("1 - Melhor Trajeto (Menor Caminho) ao destino.\n");

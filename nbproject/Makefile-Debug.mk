@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/dijkstra.o \
+	${OBJECTDIR}/floyd.o \
 	${OBJECTDIR}/graph.o \
 	${OBJECTDIR}/heap.o \
 	${OBJECTDIR}/main.o
@@ -69,6 +70,11 @@ ${OBJECTDIR}/dijkstra.o: dijkstra.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dijkstra.o dijkstra.c
+
+${OBJECTDIR}/floyd.o: floyd.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/floyd.o floyd.c
 
 ${OBJECTDIR}/graph.o: graph.c 
 	${MKDIR} -p ${OBJECTDIR}

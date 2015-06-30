@@ -64,7 +64,7 @@ typedef struct {
     unsigned int node_count;
     unsigned int node_space;
     int **matrixadj;
-} graph;
+    } graph;
 
 /* 
 	API de um grafo.
@@ -72,7 +72,13 @@ typedef struct {
 
 graph* graph_make();
 
-int **inicializa_matriz_de_adjacencias (int r, int c, int w);
+/* 
+	Matriz de Adjacência para Floyd.	
+*/
+
+
+
+
 
 /* 
 	Insere um nó ao grafo, com char* sendo o nome do nó.	
