@@ -1,0 +1,10 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=00401405
+eax=00000000 ebx=0022CC2C ecx=20018020 edx=00000000 esi=0000002E edi=0000005F
+ebp=0022CAE8 esp=0022CAC0 program=D:\Documents\NetBeansProjects\Dijkstra_GPS\dist\Debug\Cygwin-Windows\dijkstra_gps.exe, pid 18344, thread main
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+0022CAE8  00401405 (20061250, 00000007, 200612A8, 00000000)
+0022CC08  00402277 (00000001, 0022CC2C, 200280E8, 610083CF)
+0022CD28  6100842E (00000000, 0022CD84, 61007530, 00000000)
+End of stack trace
