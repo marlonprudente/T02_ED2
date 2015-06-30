@@ -46,18 +46,18 @@ void graph_add_node(graph* g, char* c) {
     n->previous = -1;
     g->node_count++;
     
-    g->matrixadj = malloc( count * sizeof (int *));
+    g->matrixadj = malloc( g->node_count * sizeof (int *));
     
-    for (i = 0; i < count; i++) {
-        g->matrixadj[i] = malloc(count * sizeof (int));
+    for (i = 0; i < g->node_count; i++) {
+        g->matrixadj[i] = malloc(g->node_count * sizeof (int));
     }
 
-    for (i = 0; i < count; i++) {
-        for (j = 0; j < count; j++) {
+    for (i = 0; i < g->node_count; i++) {
+        for (j = 0; j < g->node_count; j++) {
             g->matrixadj[i][j] = 0;
         }
     }
-        for (i = 0; i < count; i++) {
+        for (i = 0; i < g->node_count; i++) {
         g->matrixadj[i][i] = 0;
 
     }     

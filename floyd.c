@@ -30,29 +30,29 @@ int **inicializa_matriz_de_adjacencias (int r, int c, int w) {
 }
 
 void floyd(graph* g) {
-       int k, i, j;
-   int D[g->node_count][g->node_count];
-   int temp[g->node_count][g->node_count];
+      int k, i, j;
+   int **D = inicializa_matriz_de_adjacencias(g->node_count, g->node_count, INF);
+   int **temp = inicializa_matriz_de_adjacencias(g->node_count, g->node_count, INF);
 
 
+    for (i = 0; i < g->node_count; i++) {
+        for (j = 0; j < g->node_count; j++) {
+                printf("%d | ", g->matrixadj[i][j]);
+            }
+            printf("\n");
+
+    }
     for (i = 0; i < g->node_count; i++) {
         for (j = 0; j < g->node_count; j++) {
             D[i][j] = g->matrixadj[i][j];
         }
 
-    }
-          for(i = 0; i< g->node_count; i++)
-        {
-            for( j = 0; j < g->node_count; j++)
-            {
-                printf("%d | ", D[i][j]);
-            }
-            printf("\n");
-        }
+    } 
 
    /*****************************/
    /*FAZER: termine o algoritmo!*/
     /*****************************/
+    
     for(k = 0; k < g->node_count; k++)
     {
         for(i = 0; i< g->node_count; i++)
@@ -62,7 +62,7 @@ void floyd(graph* g) {
                 temp[i][j] = retornamenor(D[i][j], D[i][k] + D[k][j]);
             }
         }
-        /****/
+        /***/
         for(i = 0; i< g->node_count; i++)
         {
             for( j = 0; j < g->node_count; j++)
