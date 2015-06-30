@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=Cygwin-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
-CND_ARTIFACT_NAME_Debug=dijkstra_gps
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/dijkstra_gps
+CND_ARTIFACT_NAME_Debug=t02_ed02_gps
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/t02_ed02_gps
 CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
-CND_PACKAGE_NAME_Debug=dijkstragps.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/dijkstragps.tar
+CND_PACKAGE_NAME_Debug=t02ed02gps.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/t02ed02gps.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=dijkstra_gps
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/dijkstra_gps
+CND_ARTIFACT_NAME_Release=t02_ed02_gps
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/t02_ed02_gps
 CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=dijkstragps.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/dijkstragps.tar
+CND_PACKAGE_NAME_Release=t02ed02gps.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/t02ed02gps.tar
 #
 # include compiler specific variables
 #

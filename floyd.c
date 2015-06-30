@@ -72,20 +72,12 @@ void floyd(graph* g) {
         {
             for( j = 0; j < g->node_count; j++)
             {
-                D[i][j] = temp[i][j];
+                g->matrixadj[i][j] = temp[i][j];
 
             }
         }
 
 
-    }
-   
-       for(i = 0; i< g->node_count; i++)
-        {
-            for( j = 0; j < g->node_count; j++)
-            {
-                printf("%d | ", D[i][j]);
-            }
-            printf("\n");
-        }
+    }   
+
 }
